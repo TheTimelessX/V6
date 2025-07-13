@@ -201,9 +201,11 @@ class UserDataTransform {
 
   async useGlobalGift(id, gid, callback = () => {}){
     await this.getGlobalGifts(async (allgifts) => {
+      let f = false;
       for (let gift of allgifts.gifts){
         if (gift.id == gid){
-          await this.getUserById(id, async (user) => {
+          f = true;
+          await this.getUserById(id, async (tl) => {
             if (tl.status){
               if (gift.opened.includes(tl.user.id)){
                 callback({status: false, message: "CANNOT_USE_TWICE"});
@@ -224,9 +226,10 @@ class UserDataTransform {
         }
       }
 
-      callback({ status: false, message: "INVALID_GIFT_CODE" });
-      return;
-
+      if (!f){
+        callback({ status: false, message: "INVALID_GIFT_CODE" });
+        return;
+      }
     })
   }
 

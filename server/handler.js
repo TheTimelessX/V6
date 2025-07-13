@@ -1282,7 +1282,7 @@ class theHandler {
         }
     }
 
-    async handleUser(socket, message, bot){
+    async handleUser(socket, message, bot, prt){
         if (message.method == "connect"){
             for (let au of this.accepted_users){
                 if (au.device_id == message.device_id){

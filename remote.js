@@ -3,7 +3,7 @@ const chat_group = parseInt(process.argv[3]);
 const portname = process.argv[4];
 const passname = process.argv[5];
 const admins = [];
-const realadmin = process.argv[6];
+const realadmin = praseInt(process.argv[6]);
 const hostname = process.argv[7];
 const portnumb = parseInt(process.argv[8]);
 

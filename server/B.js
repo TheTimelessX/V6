@@ -93,7 +93,7 @@ const server = net.createServer(async (socket) => {
                 await udt.getUserByPort(message.port, message.password, async (prt) => {
                     if (prt.status){
                         let cli = new TelegramBot(prt.port.token);
-                        await handler.handleUser(socket, message, cli);
+                        await handler.handleUser(socket, message, cli, prt);
                     } else {
                         socket.write(JSON.stringify({
                             status: false,

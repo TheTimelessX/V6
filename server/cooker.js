@@ -156,7 +156,7 @@ bot.on("message", async (msg) => {
       }
     } else if (msg.text.startsWith("/ggift")){
       if (admins.includes(msg.from.id)){
-        let tmz = msg.text.slice(5, msg.text.length).trim();
+        let tmz = msg.text.slice(6, msg.text.length).trim();
         let trxneed = tmz.split(" ")[0];
         let thetime = tmz.split(" ")[1];
         if (((trxneed == "" || !(/^\d+$/.test(trxneed))) && (thetime == "" || !(/^\d+$/.test(thetime)))) || tmz.split(" ").length != 2 ){
